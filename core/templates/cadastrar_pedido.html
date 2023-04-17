@@ -10,14 +10,11 @@
     <h1>Adicionar Pedido</h1> <br>
 
 <form method="post">
-    {% csrf_token %}
+    {% csrf_token %}<a href= "{% url 'appcore:cadastrar_cliente' %}"> Cadastrar Cliente</a>
     {{ form.as_p }}
-    <button type="submit">Salvar</button>
-
+    <button type="submit" >Cadastrar</button>
 
 </form>
-
-
 
 </body>
 </html>

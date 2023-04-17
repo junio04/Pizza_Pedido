@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Pedido
-from .forms import PedidoForm
+from .models import Pedido, Cliente
+from .forms import PedidoForm, ClienteForm
 
 def listagem(request):
     pedido = Pedido.objects.all()
@@ -9,12 +9,12 @@ def listagem(request):
 
     return render(request, 'listagem.html', context )
 
-def cadastrar(request):
+def cadastrar_pedido(request):
     form = PedidoForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('appcore:listagem')
-    return render(request, 'cadastrar.html', {'form': form})
+    return render(request, 'cadastrar_pedido.html', {'form': form})
 
 
 def atualizar(request, pk):
@@ -24,21 +24,25 @@ def atualizar(request, pk):
     if form.is_valid():
         form.save()
         return redirect('appcore:listagem')
-    return render(request, 'cadastrar.html', {'form': form})
+    return render(request, 'cadastrar_pedido.html', {'form': form})
 
 
 def deletar(request, pk):
     pedido = get_object_or_404(Pedido, pk=pk)
-    pedido.delete()
-    return redirect('appcore:listagem')
 
-    if request.method == 'Post':
+    if request.method == 'POST':
         pedido.delete()
         return redirect('appcore:listagem')
 
-    context ={'pedido': pedido}
-    return  render(request, 'deletar.html', context)
+        context = {"pedido"}
+    return render(request, 'deletar.html', context)
 
 
+def cadastrar_cliente(request):
+    form = ClienteForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('appcore:cadastrar_pedido')
 
+    return render(request, 'cadastrar_cliente.html', {'form': form})
 
