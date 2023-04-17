@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deletar</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    Tem certeza que deseja excluir?
+    <input type="submit" name="Excluir">
+    <input type="reset" name=" Reset">
+
+</form>
+
+</body>
+</html>
