@@ -13,8 +13,8 @@
         <li>
     {% for pedido in pedido %}
 
-        {{ pedido }} - <a href= "{% url 'appcore:atualizar' pedido.id %}">Atualizar</a>
-                       <a href= "{% url 'appcore:deletar' pedido.id %}">Excluir</a><br>
+        {{ pedido }}   <a href= "{% url 'appcore:atualizar' pedido.id %}">Atualizar</a>
+                       <a href= "{% url 'appcore:deletar' pedido.id %}">Excluir</a> <br>
     {% endfor %}
 
         </li>

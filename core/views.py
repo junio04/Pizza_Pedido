@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Pedido, Cliente
-from .forms import PedidoForm, ClienteForm
+from .models import Pedido
+from .forms import PedidoForm, ClienteForm, EnderecoForm
 
 def listagem(request):
     pedido = Pedido.objects.all()
@@ -45,4 +45,13 @@ def cadastrar_cliente(request):
         return redirect('appcore:cadastrar_pedido')
 
     return render(request, 'cadastrar_cliente.html', {'form': form})
+
+
+def endereco(request):
+    form = EnderecoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('appcore:endereco')
+
+    return render(request, 'endereco.html', {'form': form})
 

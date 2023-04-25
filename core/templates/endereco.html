@@ -1,15 +1,15 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastrar Cliente</title>
+    <title>Cadastrar Endereço</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 
 </head>
 <body>
 
-<form method="post"> <a href="{% url 'appcore:endereco' %}">Cadastrar endereço</a>
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="button" >Cadastrar</button>
