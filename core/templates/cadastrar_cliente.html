@@ -1,4 +1,4 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,10 +8,13 @@
 
 </head>
 <body>
+<h2>Cadastrar Cliente </h2>
 
-<form method="post"> <a href="{% url 'appcore:endereco' %}">Cadastrar endereço</a>
+<form method="post"> <a href="{% url 'appcore:endereco' %}" ></a>
     {% csrf_token %}
-    {{ form.as_p }}
+    <table>
+        {{ form.as_table }}
+    </table>
     <button type="button" >Cadastrar</button>
 
 

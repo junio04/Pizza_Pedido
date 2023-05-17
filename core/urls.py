@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import listagem, cadastrar_pedido, cadastrar_cliente, atualizar,deletar, endereco
 
 app_name = 'appcore'
@@ -9,6 +9,7 @@ urlpatterns =[
     path('atualizar/<int:pk>/', atualizar, name = 'atualizar'),
     path('deletar/<int:pk>/', deletar, name= 'deletar'),
     path('cadastrar_cliente/', cadastrar_cliente, name = 'cadastrar_cliente'),
-    path('endereco/', endereco, name = 'endereco' )
+    path('endereco/', endereco, name = 'endereco' ),
+
 
 ]
