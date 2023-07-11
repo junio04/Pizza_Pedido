@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumo do Pedido</title>
+</head>
+<body>
+  <h1>Resumo do Pedido</h1>
+
+  <h2>Pizzas:</h2>
+  <ul>
+    {% for pizza in pizzas %}
+      <li>{{ pizza.get_tamanho_display }} - R$ {{ pizza.valor }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Refrigerantes:</h2>
+  <ul>
+    {% for refrigerante in refrigerantes %}
+      <li>{{ refrigerante.nome }} - R$ {{ refrigerante.valor }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Dados do Cliente:</h2>
+  <p>Nome do Cliente: {{ ultimo_cliente.nome }}</p>
+  <p>Endereço: {{ ultimo_cliente.endereco }}</p>
+  <p>Cidade: {{ ultimo_cliente.cidade }}</p>
+
+  <h2>Preço Total: R$ {{ preco_total }}</h2>
+</body>
+</html>
