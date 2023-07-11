@@ -27,5 +27,17 @@
   <p>Cidade: {{ ultimo_cliente.cidade }}</p>
 
   <h2>Preço Total: R$ {{ preco_total }}</h2>
+
+  <form method="post" action="{% url 'appcore:confirmar_compra' %}">
+    {% csrf_token %}
+    <input type="hidden" name="acao" value="confirmar">
+    <input type="submit" value="Confirmar Compra">
+  </form>
+
+  <form method="post" action="{% url 'appcore:cancelar_pedido' %}">
+    {% csrf_token %}
+    <input type="hidden" name="acao" value="cancelar">
+    <input type="submit" value="Cancelar Pedido">
+  </form>
 </body>
 </html>

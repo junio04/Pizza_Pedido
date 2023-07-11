@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-+)s^#2#_xi_0ka#ym9rgvra9=o@p_0yte9s@p96furj_^8z%u=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -27,11 +27,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'core',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
+
 ]
 
 MIDDLEWARE = [
@@ -71,16 +74,15 @@ WSGI_APPLICATION = 'CRUD_FBV.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'FBV',
-        'USER': 'root',
+        'NAME': 'databasefbv',
+        'USER': 'heisen04',
         'PASSWORD': 'heisenberg04',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -126,23 +128,19 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-SITE_ID = 1
-LOGIN_REDIRECT_URL = ''
+SITE_ID = 10
+LOGIN_REDIRECT_URL = 'appcore:cadastrar_cliente'
+ACCOUNT_DEFAULT_HTTTP_PROTOCOL ='https'
 
-# Additional configuration settings
-SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_LOGOUT_ON_GET= True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
 
 SOCIALACCOUNT_PROVIDERS = {
+
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
+        'APP': {
+            'client_id': '610630045044-niko6037htvl6v75m4ftr9mjklvear9h.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
         }
     }
 }
+

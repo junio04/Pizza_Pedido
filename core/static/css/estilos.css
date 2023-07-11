@@ -1,0 +1,55 @@
+/* Estilização para o título */
+
+body {
+    background-color: lightgreen; /* Define a cor de fundo do corpo como verde */
+}
+
+h1 {
+    color: #FF0000; /* Define a cor do título para vermelho */
+    font-size: 24px; /* Define o tamanho da fonte para 24 pixels */
+    text-align: center; /* Centraliza o título */
+}
+
+/* Estilização para a mensagem */
+p {
+    color: #0000FF; /* Define a cor do texto para azul */
+    font-style: italic; /* Define o estilo de fonte como itálico */
+}
+
+/* Estilização para o formulário */
+form {
+    margin-top: 20px; /* Define uma margem superior de 20 pixels */
+}
+
+table {
+    border-collapse: collapse; /* Colapsa as bordas das células da tabela */
+    width: 100%; /* Define a largura da tabela como 100% */
+}
+
+td {
+    padding: 10px; /* Adiciona um espaçamento interno de 10 pixels nas células da tabela */
+}
+
+input[type="submit"] {
+    background-color: #008000; /* Define a cor de fundo do botão como verde */
+    color: #FFFFFF; /* Define a cor do texto do botão como branco */
+    padding: 10px 20px; /* Adiciona um espaçamento interno de 10 pixels vertical e 20 pixels horizontal no botão */
+    border: none; /* Remove as bordas do botão */
+    cursor: pointer; /* Altera o cursor do mouse ao passar sobre o botão */
+}
+
+
+/* Adicione a classe "form-table" ao <table> */
+.form-table {
+    margin-top: 20px;
+}
+
+/* Ajuste o posicionamento dos campos e do botão */
+.form-table td {
+    padding-bottom: 10px;
+}
+
+input[type="submit"] {
+    display: block;
+    margin-bottom: 10px;
+}

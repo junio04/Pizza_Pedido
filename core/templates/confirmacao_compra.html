@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Confirmação de Compra</title>
 </head>
 <body>
-$END$
+  <h1>Compra Confirmada!</h1>
+  <p>Obrigado por sua compra.</p>
+  <p>A página será redirecionada automaticamente para a página de cadastro em <span id="countdown">10</span> segundos.</p>
+
+  <script>
+    var count = 10; // Inicia a contagem regressiva em 10 segundos
+
+    function countdown() {
+      var countdownElement = document.getElementById('countdown');
+      countdownElement.innerHTML = count;
+
+      if (count > 0) {
+        count--; // Decrementa o contador
+        setTimeout(countdown, 1000); // Chama a função novamente após 1 segundo (1000 milissegundos)
+      } else {
+        window.location.href = "{% url 'appcore:cadastrar_cliente' %}"; // Redireciona após a contagem regressiva chegar a 0
+      }
+    }
+
+    countdown(); // Inicia a contagem regressiva
+  </script>
 </body>
 </html>

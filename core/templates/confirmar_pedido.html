@@ -1,10 +1,16 @@
+bloco de notas
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Confirmar Pedido</title>
 </head>
 <body>
-$END$
+  <h1>Confirmar Pedido</h1>
+  <form method="post" action="{% url 'appcore:confirmar_pedido' %}">
+    {% csrf_token %}
+    <input type="submit" name="action" value="confirmar">
+    <input type="submit" name="action" value="cancelar">
+  </form>
 </body>
 </html>

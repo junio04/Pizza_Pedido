@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Selecionar Produtos</title>
 </head>
 <body>
-$END$
+  <h1>Dados do Cliente:</h1>
+  {% for cliente in clientes %}
+    <p><strong>Nome do Cliente:</strong> {{ cliente.nome }}</p>
+    <p><strong>Endereço:</strong> {{ cliente.endereco }}</p>
+    <p><strong>Cidade:</strong> {{ cliente.cidade }}</p>
+  {% endfor %}
+
+  <form method="post" action="{% url 'appcore:confirmar_pedido' %}">
+    {% csrf_token %}
+    <p>
+      <label for="pizza">Pizzas:</label>
+      <select id="pizza" name="pizza" multiple>
+        {% for pizza in pizzas %}
+          <option value="{{ pizza.id }}">{{ pizza.get_tamanho_display }} - R$ {{ pizza.valor }}</option>
+        {% endfor %}
+      </select>
+    </p>
+
+    <p>
+      <label for="refrigerante">Refrigerantes:</label>
+      <select id="refrigerante" name="refrigerante" multiple>
+        {% for refrigerante in refrigerantes %}
+          <option value="{{ refrigerante.id }}">{{ refrigerante.nome }} - R$ {{ refrigerante.valor }}</option>
+        {% endfor %}
+      </select>
+    </p>
+
+    <input type="submit" name="action" value="confirmar">
+    <input type="submit" name="action" value="cancelar">
+  </form>
 </body>
 </html>
